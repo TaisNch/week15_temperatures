@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temperature</title>
+  </head>
+  <body>
+    <head>
+      Где сейчас холоднее и теплее всего?
+    </head>
+    <main>
+      <ul id="citiesList">
+        Давайте посмотрим:
+      </ul>
+    </main>
+    <script>
+      let cities = ["Москва", "Санкт - Петербург", "Лондон", "Париж"];
+
+      let list = document.getElementById("citiesList");
+      const tmprts = [];
+      let a = 0;
+      while (a < cities.length) {
+        const tmprt = +prompt(`Введите температуру в городе: ${cities[a]}`, "");
+        let li = document.createElement("li");
+        li.innerText = `Температура для города ${cities[a]} — ${tmprt}`;
+        list.appendChild(li);
+        tmprts.push(tmprt);
+        a++;
+      }
+      const maxValue = Math.max.apply(null, tmprts);
+      const minValue = Math.min.apply(null, tmprts);
+      let liNew1 = document.createElement("li");
+      liNew1.innerText = "Максимальная температура сейчас: " + maxValue;
+      list.appendChild(liNew1);
+      let liNew2 = document.createElement("li");
+      liNew2.innerText = "Минимальная температура сейчас:" + minValue;
+      list.appendChild(liNew2);
+    </script>
+  </body>
+</html>
